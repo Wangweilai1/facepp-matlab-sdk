@@ -50,7 +50,7 @@ for i = 1 : length(face)
         pt = getfield(landmark_points, landmark_names{j});
         if ( strcmp(landmark_names{j}, 'contour_left1') == 1 || strcmp(landmark_names{j}, 'contour_left2') == 1 ...
                 || strcmp(landmark_names{j}, 'contour_left3') == 1)
-            fac_left_x = fac_left_x + pt.x; 
+            fac_left_x = fac_left_x + pt.x
             fac_left_y = fac_left_y + pt.y;
         else if ( strcmp(landmark_names{j}, 'contour_right1') == 1 || strcmp(landmark_names{j}, 'contour_right2') == 1 ...
                 || strcmp(landmark_names{j}, 'contour_right3') == 1)
@@ -61,7 +61,7 @@ for i = 1 : length(face)
         scatter(pt.x * img_width / 100, pt.y * img_height / 100, 'g.');
     end
     fac_left_x = fac_left_x / 3;
-    fac_left_y = fac_left_x / 3;
+    fac_left_y = fac_left_y / 3;
     fac_right_x = fac_right_x / 3;
     fac_right_y = fac_right_y / 3;
     sqrt_x = power(abs(fac_right_x - fac_left_x), 2);
