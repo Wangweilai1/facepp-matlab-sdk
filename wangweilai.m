@@ -4,9 +4,9 @@
 
 clc; clear;
 % Load an image, input your API_KEY & API_SECRET
-img = 'demo.jpg';
-API_KEY = 'd45344602f6ffd77baeab05b99fb7730';
-API_SECRET = 'jKb9XJ_GQ5cKs0QOk6Cj1HordHFBWrgL';
+img = 'GJJ.png';
+API_KEY = '9c1dce6c4c8601b5344ea697a4d10de0';
+API_SECRET = '7AiyBO3wjQ7ReLRP7u514GFrqPbzZSUO';
 
 % If you have chosen Amazon as your API sever and 
 % changed API_KEY&API_SECRET into yours, 
@@ -16,7 +16,13 @@ api = facepp(API_KEY, API_SECRET);
 
 % Detect faces in the image, obtain related information (faces, img_id, img_height, 
 % img_width, session_id, url, attributes)
-rst = detect_file(api, img, 'all');
+rst = {};
+try
+    rst = detect_file(api, img, 'all');
+catch
+    disp('Sorry, The face is error!');
+    return;
+end
 img_width = rst{1}.img_width;
 img_height = rst{1}.img_height;
 total_area = img_width * img_height;
